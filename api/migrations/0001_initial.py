@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('code', models.CharField(default='', max_length=8, unique=True)),
                 ('host', models.CharField(max_length=50, unique=True)),
-                ('guests_can_pause', models.IntegerField(default=False)),
+                ('guest_can_pause', models.IntegerField(default=False)),
                 ('votes_to_skip', models.IntegerField(default=1)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],

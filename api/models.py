@@ -19,6 +19,15 @@ def generate_unique_code():
 # Create your models here.
 
 
+# class Login(models.Model):
+#     title = models.CharField(max_length=100)
+#     description = models.TextField()
+#     completed = models.BooleanField(default=False)
+
+#     def _str_(self):
+#         return self.title
+
+
 class Room(models.Model):
     # code for joining into music room server
     code = models.CharField(
@@ -26,7 +35,7 @@ class Room(models.Model):
     # this will be unique generated code for host
     host = models.CharField(max_length=50, unique=True)
     # ability for guests who join room to skip song
-    guests_can_pause = models.BooleanField(null=False, default=False)
+    guest_can_pause = models.BooleanField(null=False, default=False)
     # counts number of users votes to skip song
     votes_to_skip = models.IntegerField(null=False, default=1)
     # date and time the room was created

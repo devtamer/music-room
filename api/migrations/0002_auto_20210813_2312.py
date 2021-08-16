@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='room',
-            name='guests_can_pause',
+            name='guest_can_pause',
             field=models.BooleanField(default=False),
         ),
     ]

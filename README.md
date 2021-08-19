@@ -21,7 +21,7 @@ python manage.py runserver
 ### Install Node Modules
 
 First cd into the ```frontend``` folder.
-```bash
+
 cd frontend
 ```
 Next install all dependicies.

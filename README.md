@@ -41,3 +41,7 @@ or for development:
 ```bash
 npm run dev
 ```
+### Open the web application
+Open your browser to the localhost address which the server is hosted at
+When launching the Django server it will give you this information
+for example `Starting development server at http://127.0.0.1:8000/`

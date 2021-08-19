@@ -9,9 +9,10 @@ pip install -r requirements.txt
 ```
 ### Start Web Server
 
-To start the web server you need to run the following sequence of commands.
-```
-Next run the django web server.
+To launch the web application correctly you need to run the following sequence of commands.
+
+run the django web server.
+
 ```bash
 python manage.py runserver
 ```
@@ -22,6 +23,7 @@ python manage.py runserver
 
 First cd into the ```frontend``` folder.
 
+```bash
 cd frontend
 ```
 Next install all dependicies.

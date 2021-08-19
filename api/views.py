@@ -111,10 +111,11 @@ class LeaveRoom(APIView):
 
 
 # updating server for when someone leaves or session ends
-class UpdateView(APIView):
+class UpdateRoom(APIView):
     # linking correct serializer to this class
     serializer_class = UpdateRoomSerializer
     # function for validating and updating data
+
     def patch(self, request, format=None):
         # creating a new user session if it doesnt exist already
         if not self.request.session.exists(self.request.session.session_key):
@@ -133,7 +134,7 @@ class UpdateView(APIView):
 
             room = queryset[0]
             user_id = self.request.session.session_key
-            if room.host != user_id: 
+            if room.host != user_id:
                 return Response({'msg': 'You are not the host of this room.'}, status=status.HTTP_403_FORBIDDEN)
 
             room.guest_can_pause = guest_can_pause
@@ -141,5 +142,4 @@ class UpdateView(APIView):
             room.save(update_fields=["guest_can_pause", "votes_to_skip"])
             return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
 
-        return Response({'Bad request': 'Invalid Data'}, status=status.s)
-
+        return Response({'Bad request': 'Invalid Data'}, status=status.HTTP_404_NOT_FOUND)

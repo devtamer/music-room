@@ -16,25 +16,19 @@ export default class HomePage extends Component {
         super(props);
         this.state = {
             roomCode: null,
-        }
-        this.clearRoomCode = this.clearRoomCode.bind(this)
-
+        };
+        this.clearRoomCode = this.clearRoomCode.bind(this);
     }
 
-
-    // will wait for response from server (data delivery)
     async componentDidMount() {
-        fetch('api/user-in-room').
-            then((response) => response.json())
+        fetch("/api/user-in-room")
+            .then((response) => response.json())
             .then((data) => {
                 this.setState({
-                    roomCode: data.code
-                })
+                    roomCode: data.code,
+                });
             });
-
     }
-
-
 
     renderHomePage() {
         return (
@@ -45,7 +39,7 @@ export default class HomePage extends Component {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} align="center">
-                    <ButtonGroup orientation="vertical" spacing={1} disableElevation variant="contained" color="primary">
+                    <ButtonGroup disableElevation variant="contained" color="primary">
                         <Button color="primary" to="/join" component={Link}>
                             Join a Room
                         </Button>
@@ -58,7 +52,6 @@ export default class HomePage extends Component {
         );
     }
 
-
     clearRoomCode() {
         this.setState({
             roomCode: null,
@@ -67,29 +60,29 @@ export default class HomePage extends Component {
 
     render() {
         return (
-
             <Router>
                 <Switch>
-                    <Route exact path="/"
+                    <Route
+                        exact
+                        path="/"
                         render={() => {
                             return this.state.roomCode ? (
                                 <Redirect to={`/room/${this.state.roomCode}`} />
                             ) : (
                                 this.renderHomePage()
                             );
-                        }} />
-                    <Route path='/join' component={RoomJoinPage}></Route>
-                    <Route path='/create' component={CreateRoomPage}></Route>
-                    <Route path='/room/:roomCode' render={(props) => {
-                        return <Room {...props} leaveRoomCallback={this.clearRoomCode} />
-                    }}>
-
-                    </Route>
+                        }}
+                    />
+                    <Route path="/join" component={RoomJoinPage} />
+                    <Route path="/create" component={CreateRoomPage} />
+                    <Route
+                        path="/room/:roomCode"
+                        render={(props) => {
+                            return <Room {...props} leaveRoomCallback={this.clearRoomCode} />;
+                        }}
+                    />
                 </Switch>
-
-            </Router >
-
-
-        )
+            </Router>
+        );
     }
 }

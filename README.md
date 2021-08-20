@@ -45,3 +45,6 @@ npm run dev
 Open your browser to the localhost address which the server is hosted at
 When launching the Django server it will give you this information
 for example `Starting development server at http://127.0.0.1:8000/`
+
+WARNING:
+In order for the play/pause/next-song features to work, the host must have a premium spotify account (rules per Spotify's API)

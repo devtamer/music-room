@@ -1,4 +1,3 @@
-This project is based off TWT Music Room and uses Django and React with Spotify's API
 
 ## Setup Instructions
 
